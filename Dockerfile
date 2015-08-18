@@ -1,11 +1,11 @@
-FROM fedora
+FROM rhel7
 
 MAINTAINER Avesh Agarwal <avagarwa@redhat.com>
 
 ENV container docker
 
 RUN yum -y update && \
-    yum -y install etcd && \
+    yum -y --enablerepo rhel-7-server-extras-rpms install etcd && \
     yum clean all
 
 LABEL Version=1.0
