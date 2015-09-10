@@ -2,14 +2,7 @@ FROM rhel7
 
 MAINTAINER Avesh Agarwal <avagarwa@redhat.com>
 
-ENV container=docker \
-    ETCD_NAME=default \
-    ETCD_DATA_DIR=/var/lib/etcd/default.etcd \
-    ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379,http://0.0.0.0:4001 \
-    ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379,http://0.0.0.0:4001 \
-    ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380,http://0.0.0.0:7001 \
-    ETCD_INITIAL_ADVERTISE_PEER_URLS=http://0.0.0.0:2380,http://0.0.0.0:7001 \
-    ETCD_INITIAL_CLUSTER=default=http://0.0.0.0:2380,default=http://0.0.0.0:7001
+ENV container=docker
 
 LABEL Vendor="Red Hat" \
       BZComponent="etcd-docker" \
@@ -30,4 +23,4 @@ ADD root /
 
 EXPOSE 4001 7001 2379 2380
 
-CMD ["/usr/bin/etcd"]
+CMD ["etcd-env.sh", "/usr/bin/etcd"]
