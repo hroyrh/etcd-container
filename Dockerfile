@@ -12,7 +12,7 @@ LABEL Vendor="Red Hat" \
       Architecture="x86_64"
 
 RUN yum -y update && \
-    yum -y --enablerepo rhel-7-server-extras-rpms install etcd && \
+    yum -y --enablerepo rhel-7-server-extras-rpms install etcd hostname && \
     yum clean all
 
 LABEL INSTALL /usr/bin/docker run --rm \$OPT1 --privileged -v /:/host -e HOST=/host -e NAME=\$NAME -e IMAGE=\$IMAGE \$IMAGE \$OPT2 /usr/bin/install.sh \$OPT3
