@@ -26,4 +26,4 @@ ADD uninstall.sh /usr/bin/uninstall.sh
 
 EXPOSE 4001 7001 2379 2380
 
-CMD  /bin/sh -c '/usr/bin/etcd-env.sh /usr/bin/etcd'
+CMD ["/usr/bin/etcd-env.sh", "/usr/bin/etcd"]
