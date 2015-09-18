@@ -5,7 +5,7 @@ MAINTAINER Avesh Agarwal <avagarwa@redhat.com>
 ENV container=docker
 
 LABEL Vendor="Red Hat" \
-      Component="etcd-docker" \
+      BZComponent="etcd-docker" \
       Name="rhel7/etcd" \
       Version="2.1.1" \
       Release="1" \
